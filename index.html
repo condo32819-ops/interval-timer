@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Interval Timer">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFVklEQVR4nO3dy7XbOBBFUbxeTkCadzjOw6F1Hg6n54qhB/Ci2fIrPn4A1L3g2VP/yNJRkZYt6ePxeBTgM39lHwB0EQdCxIEQcSBEHAgRB0LEgRBxIEQcCBEHQsSBEHEgRBwIEQdCxIEQcSBEHAgRB0LEgRBxIEQcCBEHQsSBEHEg9C37AHL8/fPH0V/y7/d/2h+Hto+bvOPtRA3b7tDKzHE0DyIyayizxTEsiMhMocwTR3oWa3MkYh+HVBN/sq7EOA7xLNZME7GMwyiLNbtEzOIwzWLNKBGnV0gnKKNYnYXH5jAa6H76K8Rgc0xZRnE4L+nNoT++JmRXiO7muEkZRfhMRTfHgHkder6qHc8YcnH0exgaTt/iIK/TiqPH0LuO2+6ADxGKo+2gB4/Y+uAjKnG0Gm76WKc5kSISR5OBKkxzMccZ5cdxfY5Xhvh6vTZ+9Pl8nv6dS/apXZf8Oof7+LZdP7bcl0AyN8fFM2+SRdfNsVA40xPSNofpvM65eLRZ+8PvfSteWSzqYcu+Uv6pnM1xekamZSxOH39KVQlx3LaMyqiP0XHcvIzKpQ+De46ZslhY3IIM3Ry8ffnNibMb2dO4OMSfJUaGTVL3f4KV2ddGpXyOg+LggrJB9uIyIg7K+JJmH4qXlbuVUQmedfc4uA/tp/ds5TaH4BNoGLVz7xvH0bTVpjPe0Ql0XR5ymwM6OsbB2jhHZ3mobA7KWBOZhkocENQrjkO7TuSJIkXhrbxsDoS6xMHaaCJ9ebA5ECIOhJLj4Jqybba3Q/IvbVmaT57LCkKZcXBN2SNxSmwOhBrHwQ1HrrbzT9scXFP2u91HMEAfcSBEHAi1jIO7UQUNH4WczcHd6FEpE+OyghBxIEQcCBEHQsSx5fV6bX+K7dyI42u3TYQ49rphIgafJtjV26ebf/nw15/Q6jPRxbE5ftu/GG6yRYjjvOkTIY5fTj/MEydCHL88n88rdxJTJkIc/0Mia8TxCRKpzL5vZSSpROy/b2XK/6UhlcgeDR8FLiu72CXSBHEccLdEiOOwK4l4ve7u+tWh6S5ukUOyZtU4jinvSTccSmRATG3nz2WlgZFbZKTMONyvLG+2EzldT+KU2ByNzbRF2sdxt9uOT70lMiaX5pNP3hyTXVneXN8iufPhstKd71WGOBDqEkf65zLPIf1TwtkcCPWKg+VxUfraKGwObFCJg+WxJjKNjnHofJGdF50vTlTZHBDUNw6Wx1E6a6MIbo4796F27t3j4N/h+uk9W7nNUfSeQGMInvWIOE4ELjiprk6c74CVPGhz0McGzTKK5mVlcYc+lM9xXBzcmbYybJJDNwcXlzeyF5TK4APj6gQnWzwW0Y++5zj9GFtMc6fT5zL4GZJwQ3rzPlzKKHbft+Leh1EZxeKe443pLYhj1q5fHeo164tHm/VM+Hg8Hil/cHX9MRZfIdYnmPwK6fUzV14h1mWU9M1RNXmApVbIHGckEUdptwDSBzrNiRSdOErrC8Tg4VoffEQojtLnBqLroO0O+BCtOErPG8yGQ7c4yOvk4qgG/B1E7Q2bUllUonEU7b+jNidYRkl/nWOD5rx6kD1T3c2xmHiFyGZR6W6OhfgET9M/L4PNsZhmhehnURlsjoXLTLcZnYXT5liYrhCjLCrLOCqjROyyqIzjqMQTMc2iso9jIVWJdROLeeKo0hOZI4tqtjjWhoUyUxBrM8ex1jyUWYNYu0scb8TfpCripnFgD6dXSDEYcSBEHAgRB0LEgRBxIEQcCBEHQsSBEHEgRBwIEQdCxIEQcSBEHAgRB0LEgRBxIEQcCBEHQsSBEHEgRBwI/Qc+rQh54Rv/+gAAAABJRU5ErkJggg==">
+<meta name="theme-color" content="#111"><title>Interval Timer</title>
+<link rel="manifest" href='data:application/manifest+json,{"name":"Interval Timer","short_name":"Timer","display":"standalone","background_color":"%23111","theme_color":"%23111","start_url":"."}'>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2300c853'/><text x='50' y='66' font-size='46' text-anchor='middle' fill='white'>⏱</text></svg>">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:#111;color:#fff;font-family:system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;height:100vh;user-select:none}
+#round{font-size:9vw;color:#ffd600;font-weight:700}
+#round.done{color:#00e676;font-size:12vw}
+.setsrow{display:flex;flex-direction:column;align-items:center;width:86vw}
+.setshead{display:flex;align-items:baseline;gap:3vw;font-size:5vw;color:#bbb}
+#setsval{font-size:13vw;font-weight:700;color:#fff;min-width:12vw;text-align:center}
+#sets{width:86vw;height:10vw;accent-color:#ffd600}
+#time{font-size:26vw;font-weight:700;font-variant-numeric:tabular-nums}
+.row{display:flex;gap:4vw;align-items:center}
+button{border:0;border-radius:4vw;font-size:8vw;font-weight:700;color:#fff;padding:4vw 6vw;min-width:22vw}
+.adj{background:#333;font-size:12vw;padding:2vw 6vw}
+#start{background:#00c853;min-width:44vw}#reset{background:#d50000}
+#dur{font-size:8vw;min-width:30vw;text-align:center}
+label{font-size:5vw}
+.steprow{display:flex;flex-direction:column;align-items:center;gap:2vw}
+.steplbl{font-size:5vw;color:#bbb}
+.seg{display:flex;border-radius:4vw;overflow:hidden;border:2px solid #555}
+.seg button{border-radius:0;background:#222;color:#aaa;font-size:6vw;padding:2.5vw 6vw;min-width:28vw}
+.seg button.on{background:#2962ff;color:#fff}
+</style><style>body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);-webkit-user-select:none;-webkit-touch-callout:none}</style>
+</head><body>
+<div id="round">Set 1 of 3</div>
+<div id="time">1:00</div>
+<div class="row"><button class="adj" id="minus">−</button><div id="dur">1:00</div><button class="adj" id="plus">+</button></div>
+<div class="steprow"><div class="steplbl">+/− step size</div><div class="seg"><button id="s30">30 sec</button><button id="s60">1 min</button></div></div>
+<div class="setsrow"><div class="setshead">Sets <span id="setsval">3</span></div><input type="range" id="sets" min="1" max="10" step="1" value="3" aria-label="Number of sets"></div>
+<label><input type="checkbox" id="cd" checked style="transform:scale(2);margin-right:3vw">3-2-1 warning beeps</label>
+<div class="row"><button id="start">Start</button><button id="reset">Reset</button></div>
+<script>
+const MAX=1800;let STEP=30,dur=60,left=60,round=1,sets=3,done=false,running=false,endAt=0,tick=null,lastBeep=-1,ac=null,wl=null;
+const $=id=>document.getElementById(id),fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+function beep(f,ms,vol){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();const o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=f;g.gain.value=vol;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+ms/1000);}catch(e){}}
+function bigBeep(){beep(1000,250,1);setTimeout(()=>beep(1000,250,1),350);setTimeout(()=>beep(1400,600,1),700);if(navigator.vibrate)try{navigator.vibrate([400,150,400,150,600])}catch(e){};}
+function finishSound(){[0,180,360].forEach((t,i)=>setTimeout(()=>beep(880+i*220,160,1),t));setTimeout(()=>beep(1760,1500,1),560);if(navigator.vibrate)try{navigator.vibrate([600,200,600,200,1200])}catch(e){};}
+function draw(){$('time').textContent=fmt(Math.max(0,Math.ceil(left)));$('round').textContent=done?'Done!':'Set '+round+' of '+sets;$('round').className=done?'done':'';$('setsval').textContent=sets;$('sets').value=sets;if(done)$('time').textContent='0:00';$('dur').textContent=fmt(dur);$('start').textContent=running?'Pause':'Start';$('start').style.background=running?'#ff6d00':'#00c853';$('s30').className=STEP==30?'on':'';$('s60').className=STEP==60?'on':'';}
+function loop(){left=(endAt-Date.now())/1000;const s=Math.ceil(left);
+ if($('cd').checked&&s<=3&&s>=1&&s!==lastBeep&&dur>3){lastBeep=s;beep(800,120,0.8);}
+ if(left<=0){if(round>=sets){finish();return;}bigBeep();round++;endAt+=dur*1000;left=(endAt-Date.now())/1000;lastBeep=-1;}draw();}
+function finish(){running=false;clearInterval(tick);done=true;left=0;lastBeep=-1;if(wl){wl.release();wl=null}if(window.Android)Android.keepOn(false);finishSound();draw();}
+async function lock(){try{if('wakeLock'in navigator)wl=await navigator.wakeLock.request('screen');}catch(e){}}
+function start(){if(done){done=false;round=1;left=dur;}beep(1,1,0);running=true;endAt=Date.now()+left*1000;tick=setInterval(loop,100);lock();if(window.Android)Android.keepOn(true);draw();}
+function pause(){running=false;clearInterval(tick);left=Math.ceil((endAt-Date.now())/1000);if(wl){wl.release();wl=null}if(window.Android)Android.keepOn(false);draw();}
+$('start').onclick=()=>running?pause():start();
+$('reset').onclick=()=>{if(running)pause();left=dur;round=1;done=false;lastBeep=-1;draw();};
+function save(){try{localStorage.setItem('it_dur',dur);localStorage.setItem('it_step',STEP);localStorage.setItem('it_sets',sets);}catch(e){}}
+function adj(d){dur=Math.min(MAX,Math.max(STEP,dur+d));if(!running){left=dur;}save();draw();}
+function setStep(st){STEP=st;if(st==60){dur=Math.min(MAX,Math.max(60,Math.round(dur/60)*60));if(!running)left=dur;}save();draw();}
+$('sets').oninput=e=>{sets=+e.target.value;if(round>sets&&!done)round=sets;save();draw();};
+$('s30').onclick=()=>setStep(30);$('s60').onclick=()=>setStep(60);
+try{const sd=+localStorage.getItem('it_dur'),ss=+localStorage.getItem('it_step');if(ss==30||ss==60)STEP=ss;if(sd>=STEP&&sd<=MAX)dur=left=sd;const sn=+localStorage.getItem('it_sets');if(sn>=1&&sn<=10)sets=sn;}catch(e){}
+$('plus').onclick=()=>adj(STEP);$('minus').onclick=()=>adj(-STEP);
+document.addEventListener('visibilitychange',()=>{if(running&&document.visibilityState==='visible')lock();});
+const q=new URLSearchParams(location.search).get('test');if(q){dur=left=+q;}const qs=new URLSearchParams(location.search).get('sets');if(qs)sets=+qs;
+draw();
+</script><script>
+function unlockAudio(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state!=='running')ac.resume();var o=ac.createOscillator(),g=ac.createGain();g.gain.value=0;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+0.01);}catch(e){}}
+['touchstart','touchend','click'].forEach(function(e){document.addEventListener(e,unlockAudio,{passive:true});});
+document.addEventListener('visibilitychange',function(){if(!document.hidden){try{if(ac&&ac.state!=='running')ac.resume();}catch(e){} if(typeof running!=='undefined'&&running&&typeof lock==='function')lock();}});
+</script>
+</body></html>

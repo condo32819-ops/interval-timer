@@ -69,4 +69,34 @@ function unlockAudio(){try{ac=ac||new (window.AudioContext||window.webkitAudioCo
 ['touchstart','touchend','click'].forEach(function(e){document.addEventListener(e,unlockAudio,{passive:true});});
 document.addEventListener('visibilitychange',function(){if(!document.hidden){try{if(ac&&ac.state!=='running')ac.resume();}catch(e){} if(typeof running!=='undefined'&&running&&typeof lock==='function')lock();}});
 </script>
+<script>
+/* iOS-robust audio: WAV data URIs via HTMLAudioElement, WebAudio fallback */
+(function(){
+function wav(parts){var sr=22050,tot=0;parts.forEach(function(p){tot+=Math.floor(sr*p[1]/1000)});var b=new ArrayBuffer(44+tot*2),v=new DataView(b);
+function s(o,t){for(var i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))}
+s(0,'RIFF');v.setUint32(4,36+tot*2,true);s(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);s(36,'data');v.setUint32(40,tot*2,true);
+var o=44;parts.forEach(function(p){var n=Math.floor(sr*p[1]/1000);for(var i=0;i<n;i++){var env=Math.min(1,i/200,(n-i)/200);var x=p[0]?Math.sin(2*Math.PI*p[0]*i/sr)*0.9*env:0;v.setInt16(o,x*32767,true);o+=2}});
+var u=new Uint8Array(b),bin='';for(var i=0;i<u.length;i+=8192)bin+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return 'data:audio/wav;base64,'+btoa(bin)}
+var SRC={tick:wav([[800,120]]),set:wav([[1000,250],[0,100],[1000,250],[0,100],[1400,600]]),fin:wav([[880,160],[0,20],[1100,160],[0,20],[1320,160],[0,20],[1760,1500]]),silent:wav([[0,50]])};
+var A={},unlocked=false;window.__snd=[];
+function el(k){if(!A[k]){var a=new Audio(SRC[k]);a.preload='auto';a.setAttribute('playsinline','');A[k]=a}return A[k]}
+function osc(k){var m={tick:[[800,120]],set:[[1000,250,0],[1000,250,350],[1400,600,700]],fin:[[880,160,0],[1100,160,180],[1320,160,360],[1760,1500,560]]}[k];m.forEach(function(x){setTimeout(function(){window.__oscBeep(x[0],x[1],1)},x[2]||0)})}
+function play(k){window.__snd.push(k);var a=el(k);try{a.pause();a.currentTime=0;a.muted=false;a.volume=1;var p=a.play();if(p&&p.catch)p.catch(function(){osc(k)})}catch(e){osc(k)}}
+window.__oscBeep=beep;
+window.unlockAll=function(){
+ try{if(navigator.audioSession)navigator.audioSession.type='playback'}catch(e){}
+ try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state!=='running')ac.resume();var bf=ac.createBuffer(1,1,22050),bs=ac.createBufferSource();bs.buffer=bf;bs.connect(ac.destination);bs.start(0)}catch(e){}
+ if(unlocked)return;unlocked=true;
+ ['tick','set','fin'].forEach(function(k){var a=el(k);a.muted=true;try{var p=a.play();var f=function(){a.pause();a.currentTime=0;a.muted=false};if(p&&p.then)p.then(f,f);else f()}catch(e){}});
+};
+beep=function(f,ms,vol){if(!vol)return;play('tick')};
+bigBeep=function(){play('set');if(navigator.vibrate)try{navigator.vibrate([400,150,400,150,600])}catch(e){}};
+finishSound=function(){play('fin');if(navigator.vibrate)try{navigator.vibrate([600,200,600,200,1200])}catch(e){}};
+var st=$('start');st.onclick=null;st.addEventListener('click',function(){unlockAll();running?pause():start()});
+['touchstart','touchend','click'].forEach(function(e){document.addEventListener(e,unlockAll,{passive:true,capture:true})});
+var tb=document.createElement('button');tb.id='testsnd';tb.textContent='🔊 Test sound';tb.style.cssText='display:block;margin:3vw auto;font-size:5vw;padding:2.5vw 6vw;border-radius:3vw;border:0;background:#2962ff;color:#fff';
+tb.addEventListener('click',function(){unlockAll();setTimeout(function(){play('set')},80)});
+var r=st.parentNode;r.parentNode.insertBefore(tb,r.nextSibling);
+})();
+</script>
 </body></html>
